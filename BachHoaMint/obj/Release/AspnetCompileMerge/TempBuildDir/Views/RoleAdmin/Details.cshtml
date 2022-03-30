@@ -1,0 +1,21 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+<div>
+    <h3>@*@Html.DisplayNameFor(m=>m.Name)*@Tên User Role: @Html.DisplayFor(m => m.Name)</h3>
+    <p class="text text-info">Danh sách các user</p>
+    <ul>
+        @if (ViewBag.UserCount > 0)
+        {
+            foreach (var user in ViewBag.Users)
+            {
+                <li>@user.UserName</li>
+            }
+        }
+        else
+        {
+            <p class="text text-warning">Danh sách trống</p>
+        }
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</p>

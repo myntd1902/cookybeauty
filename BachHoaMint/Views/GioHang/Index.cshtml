@@ -1,0 +1,71 @@
+﻿@model List<BachHoaMint.Models.CartItem>
+
+<h2>Đơn đặt hàng</h2>
+@*@if(ViewBag.Error != null)
+{ 
+    <p class="text text-danger">@ViewBag.Error</p>
+}*@
+@if(Model == null)
+{ 
+    <p class="text text-info">Chưa có sản phẩm nào trong giỏ hàng</p>
+}
+else
+{
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSP</td>
+                    <td>@item.TenSP</td>
+                    <td>
+                        <form action="@Url.Action("Update")" method="get">
+                            <input type="number" value="@item.SoLuong" min="1" name="txtSoLuong" id="txtSoLuong"/>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            <input type="hidden" name="MaSP" value="@item.MaSP"/>
+                        </form>
+                    </td>
+                    <td>@item.SoLuong</td>
+                    <td>@item.DonGia</td>
+                    <td>@item.ThanhTien</td>
+                    <td>
+                        <a href="@Url.Action("Delete", new {MaSP = item.MaSP})" 
+                           onclick="return confirm('Xóa sản phẩm này khỏi giỏ hàng?')" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        <tr>
+            <th></th>
+            <th>Tổng số lượng</th>
+            <th>@Model.Sum(m => m.SoLuong)</th>
+            <th>Tổng tiền</th>
+            <th>@Model.Sum(m => m.ThanhTien).ToString("#,###") VNĐ</th>
+            <th></th>
+        </tr>
+            <tr>
+                <td colspan="6">
+                    <form action="@Url.Action("Order")" method="get">
+                        Thông tin đặt hàng - Email:
+                        <input type="text" name="Email" id="Email"/>
+                        - Phone:
+                        <input type="text" name="Phone" id="Phone"/>
+                        <button type="submit" class="btn btn-primary">Đặt hàng</button>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                            Tiếp tục mua hàng
+                        </a>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+}
+

@@ -1,0 +1,49 @@
+﻿@model BachHoaMint.Models.HoaDon
+
+<h2>Chi tiết đơn hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NgayLapHD)*@
+            Ngày lập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayLapHD)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.NgayGiaoHang)*@
+            Ngày giao hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiaoHang)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.KhachHang.TenKH)*@
+            Khách hàng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KhachHang.TenKH)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Nhanvien.MaNV)*@
+            Mã nhân viên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhanvien.MaNV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaHD }) |
+    @Html.ActionLink("Trở lại trang trước", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BachHoaMint.Models.Nhanvien>
+
+<h2>Danh sách nhân viên</h2>
+
+<p>
+    @Html.ActionLink("Thêm nhân viên", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.HoNV)*@
+            Họ & chữ lót
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Ten)*@
+            Tên
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Diachi)*@
+            Địa chỉ
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Dienthoai)*@
+            SĐT
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diachi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dienthoai)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaNV }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaNV }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaNV })
+        </td>
+    </tr>
+}
+
+</table>

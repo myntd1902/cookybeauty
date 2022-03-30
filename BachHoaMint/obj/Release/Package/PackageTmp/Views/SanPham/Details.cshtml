@@ -1,0 +1,78 @@
+﻿@model BachHoaMint.Models.SanPham
+@using BachHoaMint.Models
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.TenSP)*@
+            Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+        <dd>
+            @Html.Image("../../" + Model.HinhSP, "", "350", "350")
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.LoaiSP.TenLoaiSP)*@
+            Loại sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSP)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Donvitinh)*@
+            Đơn vị tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Dongia)*@
+            Đơn giá
+
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,### VNĐ}", Model.Dongia)
+        </dd>
+
+        <!--<dt>
+        <br />-->
+        @*@Html.DisplayNameFor(model => model.HinhSP)*@
+        @*Hình ảnh*@
+        <!--</dt>-->
+        @*<dd>
+            @Html.Image("../../" + Model.HinhSP, "", "300", "300")
+        </dd>*@
+
+        <dt></dt>
+        <dd>
+            <br />
+            <a class="btn btn-info" href="@Url.Action("AddToCart","GioHang", new {MaSP = Model.MaSP})">
+                <span class="glyphicon glyphicon-shopping-cart"></span>Thêm vào giỏ hàng
+            </a>
+            <a class="btn btn-info" href="@Url.Action("Index", "Home")">
+                Quay lại
+            </a>
+        </dd>
+
+    </dl>
+</div>
+@*<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>*@
+

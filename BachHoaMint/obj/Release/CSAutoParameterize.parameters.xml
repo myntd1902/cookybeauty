@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-BachHoaMint-20220323014507.mdf;Initial Catalog=aspnet-BachHoaMint-20220323014507;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ASP\.NET\\BachHoaMint\\BachHoaMint\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="QLBHEntities-Web.config Connection String" description="QLBHEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.BachHoaMintModel.csdl|res://*/Models.BachHoaMintModel.ssdl|res://*/Models.BachHoaMintModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=MYNTD\MYNTD;initial catalog=QLBH;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ASP\.NET\\BachHoaMint\\BachHoaMint\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QLBHEntities']/@connectionString" />
+  </parameter>
+</parameters>

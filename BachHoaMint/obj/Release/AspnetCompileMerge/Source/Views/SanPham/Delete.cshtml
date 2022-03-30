@@ -1,0 +1,63 @@
+﻿@model BachHoaMint.Models.SanPham
+
+<h2>Xóa sản phẩm này?</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên
+            @*@Html.DisplayNameFor(model => model.TenSP)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Đơn vị tính
+            @*@Html.DisplayNameFor(model => model.Donvitinh)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donvitinh)
+        </dd>
+
+        <dt>
+            Đơn giá
+            @*@Html.DisplayNameFor(model => model.Dongia)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dongia)
+        </dd>
+
+        <dt>
+            Hình ảnh
+            @*@Html.DisplayNameFor(model => model.HinhSP)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhSP)
+        </dd>
+
+        <dt>
+            Loại
+            @*@Html.DisplayNameFor(model => model.LoaiSP.TenLoaiSP)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLoaiSP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về danh sách", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,9 @@
+﻿<ul class="dropdown-menu">
+    <li class="list-group-item" style="background-color: white">
+        <a href="@Url.Action("Index", "Home")"><font color="lightpink">Tất cả sản phẩm</font></a>
+    </li>
+    @foreach (var item in ViewBag.LoaiSP)
+    {
+        <li class="list-group-item" style="background-color: white"><a href="@Url.Action("Index", "Home", new {MaLoaiSP = item.Key})"><font color="lightpink">@item.Value</font></a></li>
+    }
+</ul>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ffced9c8fe0d4c55bb617604c82c51e4" Name="Diagram1">
+        <EntityTypeShape EntityType="QLBHModel.CTHD" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.HoaDon" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.KhachHang" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.LoaiSP" Width="1.5" PointX="5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.Nhanvien" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.SanPham" Width="1.5" PointX="7.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBHModel.sysdiagram" Width="1.5" PointX="2.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="QLBHModel.FK_CTHD_HoaDon" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.FK_CTHD_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.FK_HoaDon_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.FK_HoaDon_Nhanvien" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBHModel.FK_SanPham_LoaiSP" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

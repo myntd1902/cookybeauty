@@ -1,0 +1,60 @@
+﻿@model IEnumerable<BachHoaMint.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách khách hàng</h2>
+
+<p>
+    @Html.ActionLink("Thêm khách hàng", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên khách hàng
+            @*@Html.DisplayNameFor(model => model.TenKH)*@
+        </th>
+        <th>
+            Địa chỉ
+            @*@Html.DisplayNameFor(model => model.DiaChi)*@
+        </th>
+        <th>
+            SĐT
+            @*@Html.DisplayNameFor(model => model.DienThoai)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaKH }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaKH }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaKH })
+        </td>
+    </tr>
+}
+
+</table>

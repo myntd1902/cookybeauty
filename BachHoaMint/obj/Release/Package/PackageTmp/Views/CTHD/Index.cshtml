@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BachHoaMint.Models.ViewModel>
+
+<h2>Chi tiết hóa đơn</h2>
+<p>
+    @foreach (var m in ViewBag.Main)
+    {
+    <p>
+        Số hóa đơn: @m.hoadon.MaHD
+    </p>
+    <p>
+        Tên khách hàng: @m.khachhang.TenKH
+    </p>
+}
+    </p>
+
+    <p>
+        @Html.ActionLink("Thêm hóa đơn", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn vị tính</th>
+            <th>Số lượng</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+        </tr>
+        @{ 
+            double tongtien = 0;
+            int i = 0;
+        }
+
+        @foreach (var item in ViewBag.Sub)
+        {
+            i++;
+            tongtien += item.Thanhtien;
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @item.sanpham.TenSP
+                </td>
+                <td>
+                    @item.sanpham.TenSP
+                </td>
+                <td>
+                    @item.cthd.Soluong
+                </td>
+                <td>
+                    @String.Format("{0:#,###}", @item.cthd.DongiaBan)
+                </td>
+                <td>
+                    @String.Format("{0:#,###}", @item.Thanhtien)
+                </td>
+            </tr>
+        }
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>@String.Format("{0:#,###}", tongtien)</th>
+    </tr>
+    </table>

@@ -1,0 +1,76 @@
+﻿@model BachHoaMint.Models.SanPham
+@using BachHoaMint.Models
+
+<h2>Sửa thông tin sản phẩm</h2>
+
+
+@using (Html.BeginForm("Edit", "SanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaSP)
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.TenSP, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <p class="control-label col-md-2"><b>Tên</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TenSP, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenSP, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Donvitinh, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <p class="control-label col-md-2"><b>Đơn vị tính</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Donvitinh, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Donvitinh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Dongia, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <p class="control-label col-md-2"><b>Đơn giá</b></p>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dongia, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dongia, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.MaLoaiSP, "MaLoaiSP", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <p class="control-label col-md-2"><b>Loại</b></p>
+                    <div class="col-md-10">
+                        @Html.DropDownList("MaLoaiSP", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaLoaiSP, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.HinhSP, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <p class="control-label col-md-2"><b>Hình ảnh</b></p>
+                    <div class="col-md-10">
+                        @Html.Image("../../" + Model.HinhSP, "", "80", "100")
+                        @Html.TextBox("HinhSP", "", new { type = "file" })
+                        @Html.Hidden("HinhSP")
+                    </div>
+                </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
